@@ -50,9 +50,9 @@ class ButtonAppBar extends React.Component {
                 <Typography
                 variant="h5"
                 className={classes.grow}
-                align="center"
+                align="left"
                 color="secondary" >
-                    Macro Nutrient Calculator
+                    BMR Calculator
                 </Typography>
                 {}
                 </Toolbar>
