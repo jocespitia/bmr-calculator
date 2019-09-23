@@ -144,17 +144,17 @@ class HomePage extends React.Component {
       
         </Paper>
 
-        <WeightEntry
-        handleChange={this.handleChange}
-        bodyWeight={this.state.bodyWeight}
-        height={this.state.height}
-        age={this.state.age} />
-
         <RadioButtonField
         handleChange={this.handleChange}
         gender={this.state.gender}
         level={this.state.level}
         units={this.state.units} />
+
+        <WeightEntry
+        handleChange={this.handleChange}
+        bodyWeight={this.state.bodyWeight}
+        height={this.state.height}
+        age={this.state.age} />
 
         <Button variant="contained"
         size="large"
