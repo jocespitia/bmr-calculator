@@ -9,8 +9,6 @@ import Grid from '@material-ui/core/Grid';
 import RadioButtonField from './radiobuttonfield';
 import WeightEntry from './weightentry';
 import {CONSTANTS} from '../../constants/constants';
-import {FIT_GOALS} from "../../constants/constants";
-
 
 
 const styles = (theme) => ({
@@ -61,13 +59,9 @@ class HomePage extends React.Component {
     this.state = { 
       gender: '',
       level: '',
-      goal: '',
       bodyWeight: '',
       height: '',
       units: '',
-      fats: '0.0',
-      carbs: '0.0',
-      protein: '0.0',
       totalCalories: '0'
     }
   };
@@ -91,7 +85,6 @@ class HomePage extends React.Component {
     var weight = Number(this.state.bodyWeight);
     var height = Number(this.state.height);
     var age = Number(this.state.age);
-    var total = Number(this.state.total);
 
     /* Check inputs to make sure they are valid */
     if (isNaN(weight)) return;
@@ -99,41 +92,29 @@ class HomePage extends React.Component {
     /* Both calculations need to be done in kg, so we convert*/
     if (this.state.units === 'pounds') {
       weight = this.state.bodyWeight * 0.453592;
-      total = this.state.total * 0.453592;
     };
 
     /**
      * BMR Calories
      */
     var constants = CONSTANTS[this.state.gender][this.state.level];
-    var bmr = constants[0] + (constants[1] * Math.log(weight)) + (constants[2] * Math.log(height)) - (constants[3] * age);
-    
+    var bmr = constants[0] + (constants[1] * weight) + (constants[2] * height) - (constants[3] * age);
 
-    /**
-     * Total Calories
-     
-    var C = FIT_GOALS[this.state.goal];
-    var fewerCalories = bmr * C[0];
-    var calories2Lose = bmr - fewerCalories;
-    var calories2Gain = bmr + C[1];
-    var calories2Maintain = bmr + C[2];
-    */
-
-  bmr = Math.round(bmr*100)/100;
-  let stringScore;
-  if (bmr > 3900){
-      stringScore = "u sure?";
-    }
-    else if (isNaN(bmr) || bmr < 0){
-      stringScore = "0.05";
-    } else {
-      stringScore = bmr.toString();
-    }
+    bmr = Math.round(bmr*100)/100;
+    let stringScore;
+    if (bmr > 3900){
+        stringScore = "u sure?";
+      }
+      else if (isNaN(bmr) || bmr < 0){
+        stringScore = "0.05";
+      } else {
+        stringScore = bmr.toString();
+      }
 
 
-  this.setState({
-    totalCalories: stringScore
-  })
+    this.setState({
+      totalCalories: stringScore
+    })
 };
 
   render() {
@@ -159,33 +140,6 @@ class HomePage extends React.Component {
             </Typography>
           </Grid>
 
-          <Grid item xs={6}>
-            <Typography align="center" variant="h6" color="secondary">
-              {"Carbs:"}
-            </Typography>
-            <Typography align="center" variant="h4" color="primary">
-              {this.state.carbs}
-            </Typography>
-          </Grid>
-
-          <Grid item xs={6}>
-            <Typography align="center" variant="h6" color="secondary">
-              {"Protein:"}
-            </Typography>
-            <Typography align="center" variant="h4" color="primary">
-              {this.state.protein}
-            </Typography>
-          </Grid>
-
-          <Grid item xs={6}>
-            <Typography align="center" variant="h6" color="secondary">
-              {"Fats:"}
-            </Typography>
-            <Typography align="center" variant="h4" color="primary">
-              {this.state.fats}
-            </Typography>
-          </Grid>
-
           </Grid>
       
         </Paper>
@@ -200,7 +154,6 @@ class HomePage extends React.Component {
         handleChange={this.handleChange}
         gender={this.state.gender}
         level={this.state.level}
-        goal={this.state.goal}
         units={this.state.units} />
 
         <Button variant="contained"

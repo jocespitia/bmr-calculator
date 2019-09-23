@@ -36,20 +36,7 @@ const LEVEL = [
       value: 'active'
   }
 ];
-const GOAL = [
-  {
-    label: 'Lose',
-    value: 'lose'
-  },
-  {
-    label: 'Gain',
-    value: 'gain',
-  },
-  {
-      label: 'Maintain',
-      value: 'maintain',
-  }
-];
+
 const CONSTANTS = {
     female: {
         sedentary: [537.112, 11.096, 3.718, 5.196],
@@ -68,21 +55,10 @@ const CONSTANTS = {
         
 };
 
-const FIT_GOALS = {
-    goal: {
-        lose: .20,
-
-        gain: 250,
-
-        maintain: 0
-    }
-};
 
 export {
     UNITS,
     GENDER,
     LEVEL,
-    GOAL,
     CONSTANTS,
-    FIT_GOALS,
 }

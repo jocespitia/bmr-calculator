@@ -9,7 +9,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
-import { UNITS, GENDER, LEVEL, GOAL } from '../../constants/constants'
+import { UNITS, GENDER, LEVEL } from '../../constants/constants'
 
 const styles = (theme) => ({
   control: {
@@ -110,29 +110,6 @@ function RadioButtonField (props) {
                 </RadioGroup>
             </FormControl>
             </Grid>
-
-            <Grid item xs={6}>
-            <FormControl component="fieldset" className={classes.formControl}>
-                <FormLabel component="legend">Goal</FormLabel>
-                <RadioGroup
-                aria-label="Goal"
-                name="goal"
-                className={classes.group}
-                value={props.lift}
-                onChange={handleChange}
-                >
-                {GOAL.map((option, index) => (
-                    <FormControlLabel
-                    key={'mykey' + index} 
-                    value={option.value}
-                    control={<Radio />}
-                    label={option.label}
-                    />
-                ))}
-                </RadioGroup>
-            </FormControl>
-            </Grid>
-
 
         </Grid>
         </Paper>    
