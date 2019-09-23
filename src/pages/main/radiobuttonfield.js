@@ -45,7 +45,7 @@ function RadioButtonField (props) {
     return (
     <div className={classes.root}>
         <Paper className={classes.control}>
-        <Grid container spacing={8}>
+        <Grid container spacing={5}>
 
             <Grid item xs={6}>
             <FormControl component="fieldset">
@@ -96,7 +96,7 @@ function RadioButtonField (props) {
                 aria-label="Level"
                 name="level"
                 className={classes.group}
-                value={props.event}
+                value={props.level}
                 onChange={handleChange}
                 >
                 {LEVEL.map((option, index) => (

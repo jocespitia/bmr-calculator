@@ -131,7 +131,7 @@ class HomePage extends React.Component {
         className={classNames(classes.control, classes.sideMargin, classes.width)}>
          <Grid container spacing={24}>
         
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Typography align="center" variant="h6" color="secondary">
               {"Total Calories:"}
             </Typography>
