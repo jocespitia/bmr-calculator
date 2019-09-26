@@ -2,9 +2,11 @@
   "name": "bmr-calculator",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://jocelynespitia.com/",
   "dependencies": {
     "@material-ui/core": "^4.4.2",
     "classnames": "^2.2.6",
+    "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
@@ -12,6 +14,8 @@
     "typeface-roboto": "0.0.75"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
