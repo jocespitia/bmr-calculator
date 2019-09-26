@@ -4,11 +4,11 @@
 
 const UNITS = [
     {
-        label: 'kg',
+        label: 'kg / cm',
         value: 'kilos',
       },
       {
-        label: 'lbs',
+        label: 'lbs / in',
         value: 'pounds'
       },
 ];
